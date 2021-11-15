@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useQuery } from "react-query";
-import {Container} from 'react-bootstrap'
+import { Container, Col, Row } from "react-bootstrap";
 
 import Spinner from "../../components/spinner/Spinner";
 import CustomErrorMessage from "../../components/custom_error/CustomErrorMessage";
+import CardItem from "../../components/card_item/CardItem";
 
 import { getPeople } from "../../services/SWAPI";
 
@@ -14,12 +15,20 @@ const HomePage = () => {
     getPeople()
   );
 
+  console.log(data);
   return (
     <Container>
       {isError && <CustomErrorMessage error={error} />}
       {isLoading && <Spinner />}
-
-      <h1>This is HomePage</h1>
+      {data?.results && (
+        <Row className="justify-content-center my-5" >
+          {data.results.map((creature, i) => (
+            <Col lg={3} md={4} sm={6} key={i}>
+              <CardItem name={creature.name} linkTo={creature.url} />
+            </Col>
+          ))}
+        </Row>
+      )}
     </Container>
   );
 };

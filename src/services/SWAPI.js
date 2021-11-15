@@ -8,5 +8,5 @@ const get = async (endpoint) => {
 };
 
 export const getPeople = async (page = null) => {
-  return get(`/people/?page=${page}`); //{count: 23, nextPage: ... results: [...]}
+  return get(`/people/`); //{count: 23, nextPage: ... results: [...]}
 };

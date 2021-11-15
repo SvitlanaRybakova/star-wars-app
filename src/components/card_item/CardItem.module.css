@@ -1,0 +1,10 @@
+.creature_card {
+transition:  all 0.5s ease;
+margin: 20px;
+}
+
+.creature_card:hover {
+  cursor: pointer;
+  background-color: #212529 !important;
+  color: white !important;
+}
