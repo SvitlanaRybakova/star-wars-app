@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import { useQuery } from "react-query";
 import { Container, Col, Row } from "react-bootstrap";
 
@@ -15,16 +15,15 @@ const HomePage = () => {
     getPeople()
   );
 
-  console.log(data);
   return (
     <Container>
       {isError && <CustomErrorMessage error={error} />}
       {isLoading && <Spinner />}
       {data?.results && (
-        <Row className="justify-content-center my-5" >
+        <Row className="justify-content-center my-5">
           {data.results.map((creature, i) => (
             <Col lg={3} md={4} sm={6} key={i}>
-              <CardItem name={creature.name} linkTo={creature.url} />
+              <CardItem name={creature.name} {...creature} />
             </Col>
           ))}
         </Row>
