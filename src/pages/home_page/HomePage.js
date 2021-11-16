@@ -21,8 +21,8 @@ const HomePage = () => {
     <Container className="text-center">
       {isError && <CustomErrorMessage error={error} />}
       <SearchBar setSearchText={setSearchText} searchText={searchText} />
-     {isLoading && <Spinner />}
-      {data?.results.length === 0 && (<h1>No matches</h1>)}
+      {isLoading && <Spinner />}
+      {data?.results.length === 0 && <h1>No matches</h1>}
       {data?.results && (
         <Row className="my-5">
           {data.results.map((creature, i) => (

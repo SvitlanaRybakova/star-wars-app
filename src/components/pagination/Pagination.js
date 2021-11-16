@@ -22,7 +22,7 @@ const Pagination = ({
         </Button>
 
         <span>
-          Current Page: {currentPage} of {Math.ceil(count / 10)}
+          Current Page: {currentPage}
         </span>
 
         <Button
