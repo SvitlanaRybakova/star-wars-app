@@ -7,6 +7,6 @@ const get = async (endpoint) => {
   return response.data;
 };
 
-export const getPeople = async (page = null) => {
-  return get(`/people/`); //{count: 23, nextPage: ... results: [...]}
+export const getPeople = async (page = null, query=null) => {
+  return get(`/people/?search=${query}&page=${page}`);
 };
