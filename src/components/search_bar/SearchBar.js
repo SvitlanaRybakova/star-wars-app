@@ -29,7 +29,7 @@ const SearchBar = ({ setSearchText, setCurrentPage }) => {
         </Col>
         <Col xs="auto">
           <Button type="submit" className="btn btn-dark">
-            Find{" "}
+            Find
           </Button>
         </Col>
       </Form>

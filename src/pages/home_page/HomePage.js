@@ -17,6 +17,7 @@ const HomePage = () => {
     ["home", currentPage, searchText],
     () => getPeople(currentPage, searchText)
   );
+  
   return (
     <Container className="text-center">
       {isError && <CustomErrorMessage error={error} />}
@@ -30,7 +31,7 @@ const HomePage = () => {
         <Row className="my-5">
           {data.results.map((creature, i) => (
             <Col lg={3} md={4} sm={6} key={i}>
-              <CardItem name={creature.name} {...creature} />
+              <CardItem  {...creature} />
             </Col>
           ))}
         </Row>
@@ -40,7 +41,6 @@ const HomePage = () => {
         setCurrentPage={setCurrentPage}
         isPreviousData={isPreviousData}
         hasMore={data?.next}
-        count={data?.count}
       />
     </Container>
   );

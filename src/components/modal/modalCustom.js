@@ -4,27 +4,30 @@ import { Modal } from "react-bootstrap";
 const ModalCustom = (props) => {
   const NOT_A_VALUE = "n/a";
 
-  const displayNames = [
-    { displayName: "Birth year", key: "birth_year" },
-    { displayName: "Eye color", key: "eye_color" },
-    { displayName: "Gender", key: "gender" },
-    { displayName: "Hair color", key: "hair_color" },
+  const propsKeysToDisplayNames = [
+    { key: "birth_year", displayName: "Birth year" },
+    { key: "eye_color", displayName: "Eye color" },
+    { key: "gender", displayName: "Gender" },
+    { key: "hair_color", displayName: "Hair color" },
   ];
-
+ 
   const propertyNameByIndex = (index) => {
-    return displayNames[index].displayName;
+    return propsKeysToDisplayNames[index].displayName;
   };
+
   const propertyValueByIndex = (index) => {
-    return props[displayNames[index].key];
+    const key = propsKeysToDisplayNames[index].key; // Get key by index
+    return props[key]; // Get value from props object
   };
 
   const isPropertyValueExistByIndex = (index) => {
     return propertyValueByIndex(index) !== NOT_A_VALUE;
   };
+
   const renderDescription = (index) => {
     if (isPropertyValueExistByIndex(index)) {
       return (
-        <p>
+        <p key={index}>
           <span style={{ fontWeight: "bold" }}>
             {propertyNameByIndex(index)}:
           </span>
@@ -50,7 +53,7 @@ const ModalCustom = (props) => {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        {displayNames.map((item, index) => {
+        {propsKeysToDisplayNames.map((item, index) => {
           return renderDescription(index);
         })}
       </Modal.Body>

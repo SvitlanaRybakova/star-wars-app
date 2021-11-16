@@ -5,8 +5,7 @@ const Pagination = ({
   currentPage,
   setCurrentPage,
   isPreviousData,
-  hasMore,
-  count
+  hasMore
 }) => {
   return (
     <>
