@@ -5,9 +5,7 @@ const NavbarCustom = () => {
   return (
     <Navbar bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand>
-          SWAPI
-        </Navbar.Brand>
+        <Navbar.Brand>SWAPI (The Star Wars API)</Navbar.Brand>
       </Container>
     </Navbar>
   );

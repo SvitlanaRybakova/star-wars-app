@@ -1,12 +1,13 @@
-import React from 'react'
+import React from "react";
+import {Row} from 'react-bootstrap'
 import RingLoader from "react-spinners/RingLoader";
 
 const Spinner = () => {
   return (
-    <div className="spinnerWrapper">
-      <RingLoader className="spinner" color={"#00838f"} size={90} />
-    </div>
+    <Row style={{ height: "6em", justifyContent: "center" }}>
+      <RingLoader className="spinner" color={"#6c757d"} size={90} />
+    </Row>
   );
-}
+};
 
-export default Spinner
+export default Spinner;

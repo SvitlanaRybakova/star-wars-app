@@ -10,7 +10,7 @@ const Pagination = ({
 }) => {
   return (
     <>
-      <div className="pagination d-flex justify-content-between align-items-center mt-4 my-5">
+      <div className="pagination d-flex justify-content-between align-items-center mt-4 my-5 container">
         <Button
           className="btn btn-dark"
           onClick={() =>

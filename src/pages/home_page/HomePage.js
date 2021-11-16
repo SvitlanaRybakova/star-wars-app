@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import { useQuery } from "react-query";
-import {
-  Container,
-  Col,
-  Row
-} from "react-bootstrap";
+import { Container, Col, Row } from "react-bootstrap";
 
 import Spinner from "../../components/spinner/Spinner";
 import CustomErrorMessage from "../../components/custom_error/CustomErrorMessage";
@@ -15,22 +11,22 @@ import { getPeople } from "../../services/SWAPI";
 
 const HomePage = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [searchText, setSearchText] = useState('')
-  
+  const [searchText, setSearchText] = useState("");
+
   const { data, error, isError, isLoading, isPreviousData } = useQuery(
     ["home", currentPage, searchText],
     () => getPeople(currentPage, searchText)
   );
-
   return (
     <Container className="text-center">
       {isError && <CustomErrorMessage error={error} />}
-      {isLoading && <Spinner />}
       <SearchBar setSearchText={setSearchText} searchText={searchText} />
+     {isLoading && <Spinner />}
+      {data?.results.length === 0 && (<h1>No matches</h1>)}
       {data?.results && (
         <Row className="my-5">
           {data.results.map((creature, i) => (
-            <Col lg={3} md={4} sm={6} key={i} >
+            <Col lg={3} md={4} sm={6} key={i}>
               <CardItem name={creature.name} {...creature} />
             </Col>
           ))}
