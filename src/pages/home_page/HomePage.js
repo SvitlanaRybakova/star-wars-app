@@ -20,7 +20,10 @@ const HomePage = () => {
   return (
     <Container className="text-center">
       {isError && <CustomErrorMessage error={error} />}
-      <SearchBar setSearchText={setSearchText} searchText={searchText} />
+      <SearchBar
+        setSearchText={setSearchText}
+        setCurrentPage={setCurrentPage}
+      />
       {isLoading && <Spinner />}
       {data?.results.length === 0 && <h1>No matches</h1>}
       {data?.results && (
